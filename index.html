@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <i class="fas fa-tasks"></i>
+                <h1>TaskFlow</h1>
+            </div>
+            <p class="tagline">Gerencie suas tarefas de forma simples e eficiente</p>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats-container">
+            <div class="stat-card total">
+                <i class="fas fa-list-check"></i>
+                <div class="stat-number" id="total-tasks">0</div>
+                <div class="stat-label">Total de Tarefas</div>
+            </div>
+            <div class="stat-card pending">
+                <i class="fas fa-clock"></i>
+                <div class="stat-number" id="pending-tasks">0</div>
+                <div class="stat-label">Pendentes</div>
+            </div>
+            <div class="stat-card completed">
+                <i class="fas fa-check-circle"></i>
+                <div class="stat-number" id="completed-tasks">0</div>
+                <div class="stat-label">Concluídas</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="app-container">
+            <!-- Form Section -->
+            <section class="form-section">
+                <h2 class="section-title"><i class="fas fa-plus-circle"></i> Nova Tarefa</h2>
+                <form id="task-form">
+                    <input type="hidden" id="task-id">
+                    
+                    <div class="form-group">
+                        <label for="task-title"><i class="fas fa-heading"></i> Título *</label>
+                        <input type="text" id="task-title" placeholder="Digite o título da tarefa" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-description"><i class="fas fa-align-left"></i> Descrição</label>
+                        <textarea id="task-description" placeholder="Descreva sua tarefa..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-category"><i class="fas fa-tag"></i> Categoria</label>
+                        <select id="task-category">
+                            <option value="trabalho">Trabalho</option>
+                            <option value="pessoal">Pessoal</option>
+                            <option value="estudos">Estudos</option>
+                            <option value="saude">Saúde</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-priority"><i class="fas fa-flag"></i> Prioridade</label>
+                        <select id="task-priority">
+                            <option value="low">Baixa</option>
+                            <option value="medium">Média</option>
+                            <option value="high">Alta</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-date"><i class="fas fa-calendar"></i> Data de Conclusão</label>
+                        <input type="date" id="task-date">
+                    </div>
+                    
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-save"></i> Salvar Tarefa
+                        </button>
+                        <button type="button" id="cancel-btn" class="btn btn-light btn-block" style="display: none;">
+                            <i class="fas fa-times"></i> Cancelar
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- List Section -->
+            <section class="list-section">
+                <h2 class="section-title"><i class="fas fa-list"></i> Suas Tarefas</h2>
+                
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Todas</button>
+                    <button class="filter-btn" data-filter="pending">Pendentes</button>
+                    <button class="filter-btn" data-filter="completed">Concluídas</button>
+                    <button class="filter-btn" data-filter="high">Alta Prioridade</button>
+                </div>
+                
+                <div class="tasks-container" id="tasks-list">
+                    <!-- Tarefas serão inseridas aqui via JavaScript -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Aplicação CRUD desenvolvida com HTML, CSS e JavaScript puro</p>
+            <a href="https://github.com/RobertoCruzAcordi/taskflow-crud" target="_blank" class="github-link">
+                <i class="fab fa-github"></i> Ver código no GitHub
+            </a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
